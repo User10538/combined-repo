@@ -16,7 +16,7 @@ int main(void)
     {
         printf("$ ");
         read = getline(&line, &len, stdin);
-        if (read == -1)  // EOF (Ctrl+D)
+        if (read == -1)  /* EOF (Ctrl+D)*/
         {
             printf("\n");
             break;
