@@ -11,15 +11,15 @@
  */
 int main(void)
 {
-    pid_t pid;
-    int i;
-    int status;
+    pid_t pid; /*stores the process ID from fork()*/
+    int i; /* count from 0 to 4*/
+    int status; /*used by wait() to store the exit status of the child*/
 
     /* Arguments for execve */
-    char *argv[] = {"/bin/ls", "-l", "/tmp", NULL};
+    char *argv[] = {"/bin/ls", "-l", "/tmp", NULL}; /*argument array for the command ls -l /tmp*/
     extern char **environ; /* To pass environment to execve */
 
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 5; i++)/*A loop to repeat the process 5 times.*/
     {
         pid = fork(); /* Create a child process */
 
