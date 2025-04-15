@@ -18,6 +18,8 @@ int main(void)
     ssize_t read;
     pid_t child_pid;
     int status;
+    extern char **environ;
+
 
     while (1)
     {
