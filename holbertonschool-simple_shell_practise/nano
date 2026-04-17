@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/**
+ * split_string - splits a string into words
+ * @str: the input string
+ *
+ * Return: pointer to array of strings (words)
+ */
+char **split_string(char *str)
+{
+    char **tokens = malloc(100 * sizeof(char *));
+    char *token;
+    int i = 0;
+
+    if (!tokens)
+        return NULL;
+
+    token = strtok(str, " \t\n");
+    while (token)
+    {
+        tokens[i++] = token;
+        token = strtok(NULL, " \t\n");
+    }
+    tokens[i] = NULL;
+    return tokens;
+}
+
+/**
+ * main - test the split_string function
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+    char input[1024];
+
+    printf("Enter a string: ");
+    if (fgets(input, sizeof(input), stdin))
+    {
+        char **words = split_string(input);
+        for (int i = 0; words[i]; i++)
+            printf("word[%d]: %s\n", i, words[i]);
+        free(words); // Don't forget to free!
+    }
+
+    return (0);
+}
+
